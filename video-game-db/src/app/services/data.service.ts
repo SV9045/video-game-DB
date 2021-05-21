@@ -13,7 +13,7 @@ export class DataService {
   getGames(order: string, search?: string): Observable<APIResponse<Game>> {
     let params = new HttpParams().set('order', order);
     if (search) {
-      params = new HttpParams().set('order', order).set('search', search);
+      params = params.append('search', search);
     }
     return this.http.get<APIResponse<Game>>(`${env.environment.BASE_URL}/games`, {
       params: params,

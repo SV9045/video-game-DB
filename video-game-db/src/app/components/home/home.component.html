@@ -1,8 +1,11 @@
 <div class="dropdown-container">
   <mat-form-field>
     <mat-label>Sort</mat-label>
-    <mat-select panelClass="sort-select" [(ngModel)]="sort">
-      <mat-option *ngFor="let option of options" [value]="option.value">
+    <mat-select panelClass="sort-select"
+                [(ngModel)]="sort"
+                (selectionChange)="searchGames(sort)">
+      <mat-option *ngFor="let option of options"
+                  [value]="option.value">
         {{ option?.text }}
       </mat-option>
     </mat-select>
@@ -10,15 +13,26 @@
 </div>
 
 <div class="games">
-  <div class="game">
-    <div class="game-thumbnail">
-      <img src="" alt="" class="game-image" />
-    </div>
-    <div class="game-description">
-      <p class="game-name"></p>
-      <div class="game-platforms">
-        <img src="" alt="" class="game-platform" />
+  <ng-container *ngFor="let game of games">
+    <div class="game">
+      <div class="game-thumbnail">
+        <img *ngIf="game?.background_image"
+             src="{{ game?.background_image }}"
+             alt="{{ game?.background_image }}"
+             class="game-image" />
+        <p *ngIf="!game?.background_image">No Image</p>
+      </div>
+      <div class="game-description">
+        <p class="game-name">
+          {{ game?.name }}
+        </p>
+        <div class="game-platforms">
+          <img *ngFor="let gamePlatform of game?.parent_platforms"
+               src="assets/images/platforms/{{ gamePlatform?.platform.slug }}.svg"
+               alt="{{ gamePlatform?.platform.slug }}"
+               class="game-platform" />
+        </div>
       </div>
     </div>
-  </div>
+  </ng-container>
 </div>
