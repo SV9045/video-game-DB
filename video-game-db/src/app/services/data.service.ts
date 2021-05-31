@@ -19,4 +19,8 @@ export class DataService {
       params: params,
     });
   }
+
+  getGame(id: string) {
+
+  }
 }

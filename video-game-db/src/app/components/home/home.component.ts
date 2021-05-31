@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { of, Subscription } from 'rxjs';
 import { APIResponse, Game } from 'src/app/model/game.model';
+import { Option } from 'src/app/model/option.model';
 import { DataService } from 'src/app/services/data.service';
-import { Option } from './../../model/option.model';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   games: Game[];
 
   constructor(private data: DataService,
+              private router: Router,
               private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -41,6 +42,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       { text: 'Metacritic', value: 'metacritic' },
     ]);
   }
+
   searchGames(sort: string, search?: string): void {
     this.gameSub = this.data
       .getGames(sort, search)
@@ -49,6 +51,10 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.games = res?.results;
         console.log(this.games);
       });
+  }
+
+  openGameDetails(id: string): void {
+    this.router.navigate(['details', id]);
   }
 
   ngOnDestroy() {

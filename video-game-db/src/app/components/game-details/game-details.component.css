@@ -1,0 +1,69 @@
+.detail-wrapper {
+  max-width: 900px;
+  margin: 20px auto;
+  position: relative;
+}
+
+.details ::ng-deep mwl-gauge {
+  width: 150px;
+  height: 150px;
+  display: block;
+  padding: 10px;
+}
+
+.details ::ng-deep .dial {
+  stroke-width: 10;
+}
+
+.details ::ng-deep .value {
+  stroke-dasharray: none;
+  stroke-width: 13;
+}
+
+.details ::ng-deep .value-text {
+  fill: #fff;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.game-gauge {
+  position: absolute;
+  top: 50px;
+  right: 0;
+}
+
+.gauge-label {
+  font-size: 20px;
+  color: #fff;
+  position: relative;
+  bottom: 60px;
+}
+
+.game-banner {
+  height: 442px;
+  overflow: hidden;
+}
+
+.game-img {
+  width: 100%;
+  filter: blur(5px);
+}
+
+.game-detail {
+  text-align: center;
+  position: relative;
+}
+
+.game-header {
+  font-size: 70px;
+  color: #fff;
+  font-weight: 700;
+  line-height: 70px;
+  white-space: nowrap;
+}
+
+.game-release-date,
+.game-genres {
+  color: #fff;
+  font-weight: 700;
+}
