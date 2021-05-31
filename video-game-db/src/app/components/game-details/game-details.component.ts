@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Game } from 'src/app/model/game.model';
 import { DataService } from 'src/app/services/data.service';
 
@@ -12,15 +13,18 @@ export class GameDetailsComponent implements OnInit {
   gameRating: number = 0;
   gameId: string;
   game: Game;
+  gameSub: Subscription;
 
-  constructor(private route: ActivatedRoute,
-              private dataService: DataService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private dataService: DataService
+  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.gameId = params['id'];
       this.getGameDetails(this.gameId);
-    })
+    });
   }
 
   getColor(value: number): string {
@@ -36,6 +40,14 @@ export class GameDetailsComponent implements OnInit {
   }
 
   getGameDetails(id: string): void {
-    return this.dataService.getGame(id);
+    this.gameSub = this.dataService
+      .getGameDetails(id)
+      .subscribe((game: Game) => {
+        this.game = game;
+
+        setTimeout(() => {
+          this.gameRating = this.game.metacritic;
+        }, 1000);
+      });
   }
 }
