@@ -1,0 +1,55 @@
+.game-tabs {
+  background: rgb(61 81 181/61%);
+  text-align: left;
+  padding: 10px;
+}
+
+.game-tabs-platforms {
+  padding: 20px 20px 0 20px;
+  margin-bottom: 0;
+}
+
+.game-tabs-votes {
+  margin-left: 20px;
+  display: flex;
+}
+
+.game-votes-count {
+  margin-left: 5px;
+}
+
+.mat-tab-labels {
+  justify-content: center;
+}
+
+.game-votes-up {
+  color: #5ee432;
+}
+
+.game-votes-down {
+  color: #ef4655;
+}
+
+.game-votes-count {
+  margin-left: 5px;
+  margin-right: 10px;
+  vertical-align: super;
+}
+
+.game-desc {
+  padding: 20px;
+}
+
+.game-screenshot {
+  margin-top: 5px;
+  width: cals(50% - 10px);
+}
+
+.game-screenshot:nth-child(even) {
+  margin-left: 10px;
+}
+
+.game-trailer {
+  width: 100%;
+  margin: 20px 0;
+}

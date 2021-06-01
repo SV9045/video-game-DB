@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
 import { MaterialModule } from './material/material/material.module';
+import { GameTabsComponent } from './components/game-tabs/game-tabs.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { MaterialModule } from './material/material/material.module';
     SearchBarComponent,
     HomeComponent,
     GameDetailsComponent,
+    GameTabsComponent,
   ],
   imports: [
     BrowserModule,

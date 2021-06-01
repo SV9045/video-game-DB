@@ -44,7 +44,6 @@ export class GameDetailsComponent implements OnInit {
       .getGameDetails(id)
       .subscribe((game: Game) => {
         this.game = game;
-
         setTimeout(() => {
           this.gameRating = this.game.metacritic;
         }, 1000);

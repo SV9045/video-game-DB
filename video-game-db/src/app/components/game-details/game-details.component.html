@@ -1,40 +1,39 @@
 <div class="details">
-   <div class="game-banner">
-     <img class="game-img" src="{{game?.background_image}}" alt="game-image">
-   </div>
+  <div class="game-banner">
+    <img class="game-img" src="{{ game?.background_image }}" alt="game-image" />
+  </div>
 
-   <div class="game-detail">
-     <div class="detail-wrapper">
-       <div class="game-header">
-        <h1 class="game-name"> {{game?.name}} </h1>
-        <h2 class="game-release-date"> {{game?.released | date }} </h2>
-        <p class="game-genres">
+  <div class="game-detail">
+    <div class="detail-wrapper">
+      <div class="game-header">
+        <h1 class="game-name">{{ game?.name }}</h1>
+        <h2 class="game-release-date">{{ game?.released | date }}</h2>
+        <h2 class="game-genres">
           <span *ngFor="let genre of game?.genres; let isLast = last">
             {{ genre.name }}
-            <span *ngIf="!isLast">
-              ,
-            </span>
+            <span *ngIf="!isLast"> , </span>
           </span>
-        </p>
-       </div>
-     </div>
+        </h2>
 
-     <div class="game-guage">
-       <mwl-gauge class="two"
-                  [max]="100"
-                  [dialStartAngle]="180"
-                  [dialEndAngle]="0"
-                  [value]="gameRating"
-                  [animated]="true"
-                  [color]="getColor"
-                  [animationDuration]="2"></mwl-gauge>
-     </div>
-    <a class="gauge-label"
-       href="{{ game?.metacritic_url }}"
-       target="_blank">
-     Metacritic
-    </a>
-   </div>
+        <div class="game-guage">
+          <mwl-gauge class="two"
+                     [max]="100"
+                     [dialStartAngle]="180"
+                     [dialEndAngle]="0"
+                     [value]="gameRating"
+                     [animated]="true"
+                     [color]="getColor"
+                     [animationDuration]="2"></mwl-gauge>
+            <a class="gauge-label"
+              href="{{ game?.metacritic_url }}"
+              target="_blank">
+              Metacritic
+            </a>
+        </div>
+      </div>
 
-
+      <!-- Game Tabs -->
+      <app-game-tabs [game]="game"></app-game-tabs>
+    </div>
+  </div>
 </div>
