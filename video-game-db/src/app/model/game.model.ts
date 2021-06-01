@@ -13,7 +13,7 @@ export interface Game {
   publishers: Array<Publishers>;
   ratings: Array<Rating>;
   screenshots: Array<Screenshots>;
-  trailers: Array<Trailer>;
+  trailer: Array<Trailer>;
 }
 
 // whatever will be passed to this interface, will get in forms of an array
